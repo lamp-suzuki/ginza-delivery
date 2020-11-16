@@ -105,6 +105,10 @@
       <div class="mt-4 container">
         <h3 class="form-ttl">お届け先情報</h3>
         <div class="form-group">
+          <small class="form-text text-muted d-block">配達エリア可能エリア：中央区、港区、千代田区、品川区、目黒区、渋谷区</small>
+        </div>
+        <div id="alert-address" class="alert alert-danger mt-2" role="alert" style="display: none;">配達可能地域のご住所をご入力ください。</div>
+        <div class="form-group">
           <label class="small d-block form-must" for="">郵便番号</label>
           <div class="input-group w-50">
             <div class="input-group-prepend">
@@ -226,7 +230,7 @@
       <div class="container">
         <div class="d-flex justify-content-center form-btns">
           <a class="btn btn-lg bg-white btn-back mr-2" href="{{ route('shop.cart', ['account' => $sub_domain]) }}">戻る</a>
-          <button class="btn btn-lg btn-primary" type="submit">お支払い情報入力へ</button>
+          <button class="btn btn-lg btn-primary" type="submit" disabled>お支払い情報入力へ</button>
         </div>
       </div>
     </div>

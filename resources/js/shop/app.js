@@ -18,19 +18,25 @@ $(function() {
 
   // featherIcons
   feather.replace({
-    width: 18
+    width: 18,
   });
 
   // OnlyTOP
   if (receipt_flag == "on") {
-    $("#FirstSelect").modal({
-      backdrop: 'static'
-    }, "show");
+    $("#FirstSelect").modal(
+      {
+        backdrop: "static",
+      },
+      "show"
+    );
   }
   $("#changeDateBtn .link").on("click", function() {
-    $("#FirstSelect").modal({
-      backdrop: 'static'
-    }, "show");
+    $("#FirstSelect").modal(
+      {
+        backdrop: "static",
+      },
+      "show"
+    );
   });
   $("#salestop").modal("show");
 
@@ -95,22 +101,22 @@ $(function() {
         settings: {
           slidesToShow: 1,
           centerMode: false,
-          centerPadding: "0"
-        }
-      }
-    ]
+          centerPadding: "0",
+        },
+      },
+    ],
   });
   $(".modal-slide").slick({
     dots: true,
     infinite: true,
     speed: 300,
     autoplay: false,
-    arrows: false
+    arrows: false,
   });
 
   // carousel
   $(".carousel").carousel({
-    interval: false
+    interval: false,
   });
 
   // --- home ------------------------------------ //
@@ -122,7 +128,7 @@ $(function() {
   });
   $("#deliveryShop, #changeDeliveryShop").select2({
     theme: "bootstrap4",
-    placeholder: "店舗を選択"
+    placeholder: "店舗を選択",
   });
 
   // STEP
@@ -141,8 +147,8 @@ $(function() {
     $(this).addClass("active");
     $("input#okimochi").val($(this).attr("data-price"));
 
-    $('.js-okimochi-amount').text(Number($(this).attr("data-price")).toLocaleString());
-    $('.js-cart-total').text((Number($('.js-cart-amount').attr('data-amount')) + Number($(this).attr("data-price"))).toLocaleString());
+    $(".js-okimochi-amount").text(Number($(this).attr("data-price")).toLocaleString());
+    $(".js-cart-total").text((Number($(".js-cart-amount").attr("data-amount")) + Number($(this).attr("data-price"))).toLocaleString());
   });
   $(".btn-cartdelete").on("click", function() {
     $('#cartdelete input[name="product_id"]').val($(this).attr("data-id"));
@@ -150,20 +156,23 @@ $(function() {
   });
 
   $("#width-login").on("click", function() {
-    $("#cartform .seconds").append(
-      '<input type="hidden" name="email" value="' +
-        $("#login_email").val() +
-        '" />'
-    );
-    $("#cartform .seconds").append(
-      '<input type="hidden" name="password" value="' +
-        $("#login_password").val() +
-        '" />'
-    );
+    $("#cartform .seconds").append('<input type="hidden" name="email" value="' + $("#login_email").val() + '" />');
+    $("#cartform .seconds").append('<input type="hidden" name="password" value="' + $("#login_password").val() + '" />');
     $("#cartform").submit();
   });
 
   // --- form ------------------------------------ //
+  $("#zipcode, #address1, #address2").on("change", function() {
+    const zip = ["中央区", "港区", "千代田区", "品川区", "目黒区", "渋谷区"];
+    let val = $("#address1").val();
+    if (zip.includes(val)) {
+      $("#alert-address").css("display", "none");
+      $('button[type="submit"]').removeAttr("disabled");
+    } else {
+      $("#alert-address").css("display", "block");
+      $('button[type="submit"]').attr("disabled", true);
+    }
+  });
   // 支払い方法
   if ($("select#pay").val() == 0 && $("select#pay").val() != "") {
     $("#payjp_checkout_box").css("display", "block");

@@ -263,7 +263,7 @@ if (session('receipt.service') == 'takeout') {
       <div class="modal-body">
         <div class="tab-content">
           <input type="hidden" name="service" id="set-service" value="">
-          <div id="step1" class="tab-pane fade show active">
+          <div id="step1" class="tab-pane fade">
             <h3>
               <span>STEP1</span>
               <span>お受け取り方法を選択</span>
@@ -374,21 +374,23 @@ if (session('receipt.service') == 'takeout') {
               <button class="btn btn-primary rounded-pill" id="next-step3" type="button" name="next" disabled>次へ進む</button>
             </div>
           </div>
-          <div id="step3" class="tab-pane fade">
+          <div id="step3" class="tab-pane fade show active">
             <h3>
-              <span>STEP3</span>
+              <span></span>
               <span>お受け取り日時を選択</span>
             </h3>
             <div class="form-group">
               <select id="deliveryDate" class="form-control" name="delivery_date">
-                @for ($i = 0; $i <= 6; $i++)
+                @for ($i = 2; $i <= 14; $i++)
                 <option value="{{ date('Y-m-d', strtotime('+'.$i.' day')) }}">{{ date('Y年n月j日', strtotime('+'.$i.' day')) }}@if($i == 0)（本日）@elseif($i == 1)（明日）@endif</option>
                 @endfor
               </select>
             </div>
             <div class="form-group">
               <select id="delivery_time" class="form-control" name="delivery_time">
-                <option value="">--:--</option>
+                <option value="16:00〜17:00">16:00〜17:00</option>
+                <option value="17:00〜18:00">17:00〜18:00</option>
+                <option value="18:00〜19:00">18:00〜19:00</option>
               </select>
             </div>
             <small id="datevali" class="form-text text-danger" style="display: none">有効な日時をご選択ください</small>

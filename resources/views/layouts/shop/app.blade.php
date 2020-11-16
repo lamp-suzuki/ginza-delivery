@@ -8,10 +8,10 @@ $index_route = ['shop.home', 'shop.news', 'shop.info', 'shop.shopinfo', 'shop.gu
 <head>
   <meta charset="utf-8">
 
-  @if (!in_array($current_rname, $index_route, true))
+  {{-- @if (!in_array($current_rname, $index_route, true))
   <meta name="robots" content="noindex">
-  @endif
-  {{-- <meta name="robots" content="noindex"> --}}
+  @endif --}}
+  <meta name="robots" content="noindex">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,13 +29,13 @@ $index_route = ['shop.home', 'shop.news', 'shop.info', 'shop.shopinfo', 'shop.gu
   <script src="{{ asset('js/shop/app.js') }}" defer></script>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWWKBVJZNL"></script>
+  {{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YWWKBVJZNL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-YWWKBVJZNL');
-  </script>
+  </script> --}}
 </head>
 
 <body @if ($current_rname==='shop.home' ) class="home" @endif>
