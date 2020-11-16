@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index($account, Request $request)
     {
-        // $request->session()->flush();
+        $request->session()->put('receipt.service', 'delivery');
 
         $sub_domain = $account;
         $manages = DB::table('manages')->where('domain', $sub_domain)->first();
