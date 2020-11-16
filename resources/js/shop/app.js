@@ -164,14 +164,16 @@ $(function() {
   // --- form ------------------------------------ //
   $("#zipcode, #address1, #address2").on("change", function() {
     const zip = ["中央区", "港区", "千代田区", "品川区", "目黒区", "渋谷区"];
-    let val = $("#address1").val();
-    if (zip.includes(val)) {
-      $("#alert-address").css("display", "none");
-      $('button[type="submit"]').removeAttr("disabled");
-    } else {
-      $("#alert-address").css("display", "block");
-      $('button[type="submit"]').attr("disabled", true);
-    }
+    setTimeout(function() {
+      let val = $("#address1").val();
+      if (zip.includes(val)) {
+        $("#alert-address").css("display", "none");
+        $('button[type="submit"]').removeAttr("disabled");
+      } else {
+        $("#alert-address").css("display", "block");
+        $('button[type="submit"]').attr("disabled", true);
+      }
+    }, 500);
   });
   // 支払い方法
   if ($("select#pay").val() == 0 && $("select#pay").val() != "") {

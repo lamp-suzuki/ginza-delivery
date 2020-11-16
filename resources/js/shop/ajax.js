@@ -79,12 +79,12 @@ $('#step2 button[name="next"]').on("click", function() {
 });
 
 // 受け取り時間選択
-$("#deliveryDate, #changedeliveryDate").on("change", function() {
-  getBusinessTime($(this).val());
-});
-$("#nextstep3").on("click", function() {
-  setSelectTime($("#deliveryDate").val(), $("#delivery_time").val());
-});
+// $("#deliveryDate, #changedeliveryDate").on("change", function() {
+//   getBusinessTime($(this).val());
+// });
+// $("#nextstep3").on("click", function() {
+//   setSelectTime($("#deliveryDate").val(), $("#delivery_time").val());
+// });
 
 $(".js-vali").on("change", function() {
   cartVali();
