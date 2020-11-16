@@ -15,7 +15,7 @@ $index_route = ['shop.home', 'shop.news', 'shop.info', 'shop.shopinfo', 'shop.gu
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <meta name="receipt" content="{{ !session()->has('receipt') ? 'on' : 'no' }}">
+  <meta name="receipt" content="{{ !session()->has('receipt.date') && !session()->has('receipt.time') ? 'on' : 'no' }}">
 
   @hasSection('page_title')
   <title>@yield('page_title') | 【公式】{{ $meta_title }} | テイクアウト（お持ち帰り）注文サイト</title>
